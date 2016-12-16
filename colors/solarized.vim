@@ -248,7 +248,7 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:base00      = "#657b83"
     let s:base0       = "#839496"
     let s:base1       = "#93a1a1"
-    let s:base2       = "#eee8d5"
+    let s:base2       = "#e3dcca"
     let s:base3       = "#fdf6e3"
     let s:yellow      = "#b58900"
     let s:orange      = "#cb4b16"
