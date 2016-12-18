@@ -205,6 +205,14 @@ function! s:SetOption(name,default)
     endif
 endfunction
 
+function! s:SwitchBlacksIfNecessary()
+    if g:solarized_termcolors_blacks_reversed == 1
+        let l:temp03 = s:base03
+	let s:base03 = s:base02
+	let s:base02 = l:temp03
+    endif
+endfunction
+
 if ($TERM_PROGRAM ==? "apple_terminal" && &t_Co < 256)
     let s:solarized_termtrans_default = 1
 else
@@ -298,6 +306,7 @@ elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:blue        = "4"
     let s:cyan        = "6"
     let s:green       = "2"
+    call s:SwitchBlacksIfNecessary()
 elseif g:solarized_termcolors == 256
     let s:vmode       = "cterm"
     let s:base03      = "234"
@@ -351,7 +360,7 @@ else
     let s:blue        = "DarkBlue"      " 4
     let s:cyan        = "DarkCyan"      " 6
     let s:green       = "DarkGreen"     " 2
-
+    call s:SwitchBlacksIfNecessary()
 endif
 "}}}
 " Formatting options and null values for passthrough effect "{{{
